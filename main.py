@@ -10,8 +10,11 @@ def main():
     text = open_book(book_path)
     word_count = count_words(text)
     char_count = count_characters(text)
-    print(f"--- Begin report of {book_path} ---")
-    print(f"{word_count} words found in the document")
+    print("============ BOOKBOT ============")
+    print(f"Analyzing book found at {book_path}...")
+    print("----------- Word Count ----------")
+    print(f"Found {word_count} total words")
+    print("--------- Character Count -------")
     char_list = []
     for char in char_count:
         if char.isalpha():
@@ -21,13 +24,9 @@ def main():
         return dict["count"]
     char_list.sort(reverse=True, key=sort_on)
     for char in char_list:
-        print(f"The character {char["letter"]} was found {char["count"]} times")
+        print(f"{char["letter"]}: {char["count"]}")
 
-    
-    #print(char_list)
-
-    
-    print("--- End report ---")
+    print("============= END ===============")
 
 main()
 

@@ -1,22 +1,9 @@
+from stats import count_words, count_characters
+
 def open_book(path):
     with open(path) as f:
         file_contents = f.read()
     return file_contents
-
-def count_words(input):
-    words = input.split()
-    return len(words)
-
-def count_characters(input):
-    input_lowercase = input.lower()
-    letters_dict  = {}
-    for char in input_lowercase:
-        if char not in letters_dict:
-            letters_dict[char] = 1
-        else:
-            letters_dict[char] += 1
-    return letters_dict
-
 
 def main():
     book_path = "books/frankenstein.txt"

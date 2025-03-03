@@ -1,5 +1,5 @@
 import sys
-from stats import count_words, count_characters
+from stats import count_words, count_characters, sort_characters
 
 def open_book(path):
     with open(path) as f:
@@ -19,17 +19,9 @@ def main():
     print("----------- Word Count ----------")
     print(f"Found {word_count} total words")
     print("--------- Character Count -------")
-    char_list = []
-    for char in char_count:
-        if char.isalpha():
-            char_dict = {"letter": char, "count": char_count[char]}
-            char_list.append(char_dict)
-    def sort_on(dict):
-        return dict["count"]
-    char_list.sort(reverse=True, key=sort_on)
-    for char in char_list:
+    sorted_list = sort_characters(char_count)
+    for char in sorted_list:
         print(f"{char["letter"]}: {char["count"]}")
-
     print("============= END ===============")
 
 main()
